@@ -1,0 +1,65 @@
+---
+layout: default
+---
+<!-- the content section includes the main information of the website: the introductory paragraphs. -->
+<section class="content" title="Main explanation of the Latin Americans in Cryptography website">
+
+  <!-- this section includes the main, most important content of this section. -->
+  <div class="main-content">
+    <p>We are <strong>Latin Americans</strong> in <strong>Cryptography</strong>.</p>
+    <p>Read what we do here.</p>
+  </div>
+
+  <!-- this section includes the "floating" content of the section: content that is situated beyond the section's height. This content is an arrow and text. -->
+  <div id="float-section">
+    <!-- this section includes the arrow image for the website which signals that there is more content when navigating. It will be shown be using javascript. -->
+    <div class="float-arrow scroll-element">
+      <!-- this section draws the arrow itself. -->
+      <svg viewBox="0 0 119 127">
+        <polyline class="arrow-line" points="44.3,87.7 67.5,98 67.5,36.4 " />
+        <line class="arrow-line" x1="93.2" y1="88.4" x2="67.5" y2="98.7" />
+      </svg>
+    </div>
+    <!-- this section includes the secondary main introductory text of the website. -->
+    <div id="float-text">
+      <p>Hi! Welcome to our site!</p>
+      <p>We are <strong>Latin Americans in Cryptography</strong>.</p>
+      <p>Find here all about us, specially, what we write: this is a magazine of all our thoughts!</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- this articles section includes the most recent articles of the website: they will be rendered by javascript. -->
+<section id="articles" title="List of the recent articles from Latin Americans in Cryptography">
+
+  <!-- this section includes the main title of this section. -->
+  <div class="main-content">
+    <p class="scroll-element">Our articles:</p>
+  </div>
+
+  <!-- this section includes the most recent articles: they will be rendered with javascript. -->
+  <div id="articles-nav">
+    <div id="main-articles-list">
+      {% for post in site.posts %}
+		    <a class="article-link" href="{{post.url}}">
+				  <div>
+					  <div><img src="{{post.image}}" alt="{{post.alt}}"></div>
+						<div class="article-title-out">{{post.title}}</div>
+						<div class="article-author-out">{{post.author}}</div>
+						<div class="article-date-out">{{post.date}}</div>
+					</div>
+				</a>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- this section includes the "floating" content of the section: content that is situated beyond the section's height. This content is an arrow. -->
+  <div class="float-arrow scroll-element">
+    <!-- this section draws the arrow itself. -->
+    <svg viewBox="0 0 119 127">
+      <polyline class="arrow-line" points="44.3,87.7 67.5,98 67.5,36.4 " />
+      <line class="arrow-line" x1="93.2" y1="88.4" x2="67.5" y2="98.7" />
+    </svg>
+  </div>
+
+</section>

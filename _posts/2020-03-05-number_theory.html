@@ -1,0 +1,178 @@
+---
+layout: post
+title:  "Understanding Number Theory"
+author: "Sofía Celi"
+date:   "05/03/2021"
+image: ../images/articles/2021_03_05_number_theory_image.png
+categories: cryptography, numbers
+---
+
+      <div class="article-intro">
+        <p>God may not play dice with the universe, but something strange is going on with the prime numbers.</p>
+        <p>--- Paul Erdos</p>
+      </div>
+      <!-- the content of the article itself. -->
+      <div class="article-text">
+        <p>This article has also been posted to <a href="https://www.sofiaceli.com/2021/03/05/unique-factorization.html">Sofía Celi's blog</a>. Re-posted here with permission.</p>
+        <p>I always liked mathematics and logic. During my undergrad degree, I spent hours
+          devouring anything written by Wittgenstein, and finding about Cantor and
+          Gödel (in contrast to my high school years in which I obsessed with Nietzsche and
+          Camus, and even read the whole 'Phenomenology of the Spirit' by Hegel to see
+          where Nietzsche was coming from)<sup><a href="#foot1">[1]</a></sup>.
+          I also read anything from Jorge Luis Borges as his literature writing touch
+          upon some mathematical concepts, while also deeply loving the way Borges writes.
+          At the end, I studied them from a more philosophical perspective, as my degree was
+          touching upon that, but I always dreamt on studying mathematics.
+        </p>
+        <p>Getting access to these books and articles from these authors and more was always
+          difficult as I didn't have any money to buy them, so I spent hours in public libraries
+          reading them. Some books also never reached my country, Ecuador, so sometimes
+          I had to find the only copy in the country that some professor had and ask them
+          to lend them to me for a time. I remember that once I wanted to read an specific
+          book by Derrida and I found that one professor had it but in it's original french.
+          My french is not the best but I succeeded in reading it, even when Derrida
+          plays with the french language and basically deconstructs it. I'm also a woman,
+          so sometimes I had to hide that I was reading something as 'women are not
+          supposed to read that'.
+        </p>
+        <p>Some weeks ago, I had a very nice call with Steven Galbraith, and my interest
+          for mathematics got renewed. So I decided to do what I do best: find books
+          and read them.
+        </p>
+        <p>The subsequent posts I will writing are the results of me reading <em>A Classical
+            Introduction to Modern Number Theory'</em> by Kenneth Ireland and
+          Michael Rosen, <em>'An Introduction to the Theory of Numbers'</em> by Ivan Nevin, Herbert
+          S. Zuckerman and Hugh L. Montgomery, and <em>'Introduction to Automata Theory,
+            Languages and Computation'</em> by John E. Hopcroft, Rajeev Motwani and
+          Jeffrey D. Ullman. In the future, I'll be also reading <em>'Logical Foundations of
+            Proof Complexity'</em> by Stephen Cook, <em>'Solved and Unsolved Problems in Number
+            Theory'</em> by Daniel Shanks, <em>'The Arithmetic of Elliptic Curves'</em> and <em>'Advanced
+              Topics in the Arithmetic of Elliptic Curves'</em> by Joseph H. Silverman.
+        </p>
+        <p>As the book <em>'A Classical Introduction to Modern Number Theory'</em> states,
+          "L. Kronecker once remarked (speaking of mathematics generally) that God made
+          the natural numbers and all the rest is the work of man". Number Theory is
+          precisely the study of natural numbers, also called the positive integers
+          (although, some definitions begin the natural numbers with the '0'). Properties
+          of these numbers have been studied for a very long time, and today we will be
+          looking at divisibility.
+        </p>
+        <p>A number <code>a</code>, not zero, is said to divide another <code>b</code> if there is a
+          number <code>c</code> such that <code>b = ac</code>. We write this: <code>a|b</code>.
+        </p>
+        <p>For example, <code>a = 3</code>, <code>b = 6</code>: <code>6 = 3 * 2</code>.</p>
+        <p>This simple definition of division can be further examined by listing it's
+          properties:
+        </p>
+        <ol>
+          <li><code>a|b</code> implies <code>a|bc</code> for any integer <code>c</code>,</li>
+          <li><code>a|b</code> and <code>b|c</code> imply <code>a|c</code>,</li>
+          <li><code>a|b</code> and <code>a|c</code> imply <code>a|(bx + cy)</code> for any integers <code>x</code> and <code>y</code>,</li>
+          <li><code>a|b</code> and <code>b|a</code> imply <code>a = ±b</code>,</li>
+          <li><code>a|b</code>, <code>a > 0</code>, <code>b > 0</code>, imply <code>a ≤ b</code>,</li>
+          <li> if <code>m ≠ 0</code>, <code>a|b</code> implies and is implied by <code>ma|mb</code>.</li>
+        </ol>
+        <p>All of these properties are a theorem and should be proven, as they have already
+          in the past. Why is a proof important? A proof is a inferential argument<sup><a href="#foot2">[2]</a></sup>
+          showing that an assumption logically guarantees a conclusion. Sometimes just
+          finding an example is enough to provide a proof of a theorem, for example: "there
+          is a positive number that is not the sum of three squares" can be proven by
+          noting that 7 is such a number. But other statements are harder to proof.
+        </p>
+        <p>In software programming, one might say that is enough to run a program to
+          see that it works: but, most of the times, you cannot run a program on
+          every possible input that will be given. That is why proofs are needed.
+        </p>
+        <p>There are many methods for providing a proof: direct proof, proof by
+          contradiction, proof by contraposition, proof by construction, inductive proofs
+          and more.
+        </p>
+        <p>Returning to the idea of divisibility: If we are given a number, it is tempting
+          to factor it again until further factorization is impossible. Numbers that
+          cannot be factored any further are called primes. An integer <code>p > 1</code> is a prime
+          number in case there is no divisor <code>d</code> of <code>p</code> satisfying <code>1 &lt; d &lt; p</code>. If an
+              integer <code>a &gt; 1</code> is not a prime, it is called a composite.
+        </p>
+        <p>When one looks at primes one can ask: can every even number greater than 2 be
+          written as the sum of two primes? This is known as the Goldbach conjecture,
+          which has not yet been proven. This problem belongs to the 'additive' problems
+          around primes, but we must look at another problem in the 'multiplicative'
+          ones that has been proven:
+        </p>
+
+        <h2>Theorem</h2>
+        <p>Every integer greater than 1 can be expressed as a product of primes.</p>
+
+        <h2>Proof</h2>
+        <p>If the given integer <code>n</code> is a prime, then the integer itself stands as a product
+          with a single factor.
+        </p>
+        <p>If the given integer <code>n</code> is not a prime, then it can be factored into <code>n_1 * n_2</code>.
+          If <code>n_1</code> is not a prime, then it can be factored into <code>n_3 * n_4</code>. The same for
+          <code>n_2</code>. This process of writing each composite as a product of factors will
+          end at some point when the factors are smaller than the composite itself, and
+          each factor is an integer greater than 1.
+        </p>
+        <p>We can provide a proof by contradiction for this as well:</p>
+        <p>
+        <ul>
+          <li>We rewrite the statement as 'If an integer is greater than 1 then it can
+            be expressed as a product of primes'.</li>
+          <li>We construct the contradiction ("H and not C implies falsehood"):
+            'If an integer is greater than 1 then it cannot be expressed as a product of
+            primes'.</li>
+          <li>Define <code>N = an integer greater than 1 that cannot be expressed as product of
+              primes</code>. <code>N</code> cannot be a prime, as it will stand as a product with a single
+            factor. Therefore <code>N = n*m</code>, where <code>n</code> and <code>m</code> are positive and smaller than
+            <code>N</code>. As either <code>n</code> and <code>m</code> is bigger than 1, then it should be expressed as
+            a product. This arrives to a contradiction.
+          </li>
+        </ul>
+        </p>
+        <p>Canonically, this can be worded as:</p>
+
+        <!-- a relevant quote in the article -->
+        <blockquote class="article-quote">
+          Every positive integer <code>n > 1</code> can be represented in exactly one way as a product
+          of prime powers:
+        </blockquote>
+
+        <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/22f8cf10ecd16a6f7dc6d97338d84be9c369a3f7" alt="product of prime powers">
+
+        <p>The representation of <code>n</code> as a product of primes is called the canonical
+          factoring of <code>n</code> into prime powers. Gauss was the first to provide a proof
+          for this, and it is defined as the fundamental theorem of arithmetic. Notably
+          in algebraic number theory, unique factorization fails to hold. An example of
+          this can be easily seen in this example:
+        </p>
+        <p>Let's consider <code>S</code> the class of positive integers (2, 4, 6, 8, 10...) and only
+          those. <code>S</code> is a multiplicative system in that the product of any two
+          elements on it is found on <code>S</code> as well. Then <code>8 = 4 * 2</code> is a "composite", as
+          the factors exist in the group; on the contrary, <code>10</code> is a "prime" as there are
+          no factors on <code>S</code> that factor it. The number 60 has two factorings into "primes":
+          <code>60 = 2 * 30</code> and <code>60 = 6 * 10</code>. Factorization is, therefore, not unique in this
+          case. This can be extended to other classes as well.
+        </p>
+        <p>This is an small summary of reading the first chapters of the listed books.
+          Up next, we will look more at unique factorization, the binomial theorem.
+          We will also look at Finite Automata on a different post.
+        </p>
+
+        <h2>Fascinating things I learned</h2>
+
+        <p>If <code>g</code> is the greatest common divisor of <code>b</code> and <code>c</code>, then there exists
+          integers <code>x_0</code> and <code>y_0</code> such that <code>g = (b, c) = bx_0 + cy_0</code>, which
+          means that the g.c.d of two integers <code>b</code> and <code>c</code> is expressible as a linear
+          combination of <code>b</code> and <code>c</code> with integral multipliers <code>x_0</code> and <code>y_0</code>.
+          This is simply beautiful.
+        </p>
+
+        <!-- the footnotes of the article -->
+        <div class="article-footnotes">
+          <p id="foot1" class="footnote">[1] My high school was a really
+            catholic opus-dei one, and we were forbidden of reading anything Nietzsche-Sartre-Camus-Marx-like.
+            As a rebel I was, I read them all.</p>
+          <p id="foot2" class="footnote">[2] As defined by Aristotle by either
+            using induction or deduction. Pierce provided a third type of inference 'abduction'.</p>
+        </div>
+      </div>

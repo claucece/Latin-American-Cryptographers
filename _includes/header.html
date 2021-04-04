@@ -1,0 +1,45 @@
+<!-- the header section includes the navigation bar (which menu is cleaned) and the logo (a text). -->
+<section class="header" title="Main information of the Latin Americans in Cryptography website">
+
+  <!-- This class and role is defined as a 'banner' as it represents the general information for the website, as defined here: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Banner_role -->
+  <div role="banner" class="banner">
+    <!-- This box corresponds to the logo of the website placed on the header: the logo is text  -->
+    <a href="index.html">
+      <div id="header-logo">
+        <p>Latin American Cryptographers</p>
+      </div>
+    </a>
+
+    <!-- This section corresponds to the sandwich menu of the website which will use the 'checkbox' to toggle and show the content.-->
+    <!-- It will also change the icon from sandwich to close.-->
+    <input id="nav-toggle" class="nav-toggle" type="checkbox" />
+    <label id="nav-toggle-label" for="nav-toggle">
+      <svg class="sandwich-menu" viewBox="0 0 60 30">
+        <!-- The sandwich menu icon  -->
+        <g class="line-group">
+          <g class="line-icon">
+            <path d="M 6 0 L 54 0" />
+            <path d="M 6 15 L 50 15" />
+            <path d="M 6 30 L 54 30" />
+          </g>
+          <!-- The close menu icon  -->
+          <g class="close-icon">
+            <path d="M 15 0 L 45 30" />
+            <path d="M 15 30 L 45 0" />
+          </g>
+        </g>
+      </svg>
+    </label>
+
+    <!-- This section corresponds to the main navigation menu of the website which will be shown when the 'checkbox' is toggled.-->
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="authors.html">Authors</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+</section>
