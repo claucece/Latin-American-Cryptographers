@@ -1127,6 +1127,7 @@ section.full-articles {
 /* styling of the 'article-full-information' class which renders the information for each article: author, date, tags */
 .article-full-information {
   font-family: var(--secondary-font);
+  font-size: 0.9rem;
   text-align: left;
   margin-left: 1rem;
 }
