@@ -1,0 +1,1211 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+
+/* Variables that are repeated over the styling code */
+:root {
+  /* The color palette: white, black, gray, yellow and purple. Defined in hex */
+  --off-white: #ffffd1;
+  --dark-black: #000000;
+  --light-gray: #d3d3d3;
+  --off-yellow: #f2ee83;
+  --off-dark-purple: #6438A6;
+  --off-light-purple: #8f9df2;
+
+  /* The color palette with opacity: white and gray. Defined in hex */
+  --opaque-off-white: #ffffd1e1;
+  --opaque-off-light-gray: #d3d3d31f;
+
+  /* The font size definitions for the two fonts that are used */
+  --main-font: 'Helvetica', sans-serif;
+  --secondary-font: 'Courier Prime', monospace;
+  --main-font-size: 2em;
+  --med-font-size: 1.8em;
+  --small-font-size: 1.5em;
+  --reponsive-small-font-size: 0.79em;
+  --reponsive-med-font-size: 1.3em;
+
+  /* The duration of all animations */
+  --animate-duration: 1s;
+  --menu-duration: calc(var(--animate-duration) / 4);
+  --menu-ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  /* Variables for space between elements */
+  --space: 0.5rem;
+  --line-height: 1.5;
+}
+
+/* For responsiveness purposes */
+/* This makes sure that the padding and border are included in the total width and height of the elements. */
+/* Taken from: https://www.w3schools.com/css/css_rwd_grid.asp */
+* {
+  box-sizing: border-box;
+}
+
+/* Main body for the website */
+htlm,
+body {
+  font-family: var(--main-font);
+  line-height: var(--line-height);
+}
+
+/* Shared elements: elements that are used on different sections of the website */
+/* */
+/* */
+/* Defines the style of all links in the website */
+a {
+  text-decoration: none;
+  color: var(--dark-black);
+}
+
+/* For accessibility purposes. See: https://css-tricks.com/focusing-on-focus-styles/ */
+a:focus {
+  outline: 3px solid var(--off-dark-purple);
+}
+
+/* Defines the style of all paragraphs in the website */
+p {
+  font-size: var(--main-font-size); /* using em for font sizes as defined in https://gist.github.com/basham/2175a16ab7c60ce8e001 */
+}
+
+/* start of footer section */
+/* styling of the footer tag */
+footer {
+  display: flex; /* using a flex box to stack up elements in a column: the information and the social media icons */
+  justify-content: space-between; /* aligment along the main axis of the elements: items are evenly distributed in the line */
+  align-items: center;
+
+  margin: 0;
+  padding: 0 80px;
+
+  color: var(--dark-black);
+  line-height: calc(var(--line-height) / 1.3);
+  background-color: var(--off-yellow);
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  footer {
+    padding: 0 20px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  footer {
+    padding: 0 80px;
+  }
+}
+/* end footer section */
+/*
+/*
+
+/* start of header section */
+/*
+/* styling of the class corresponding to the banner of the website */
+.banner {
+  display: flex; /* using a flex box to add elements as a row: the logo (a text) and navigation bar (menu) */
+
+  position: relative; /* positioned relative to its normal position */
+  border-bottom: 1px solid var(--light-gray);
+  margin: 5vh;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .banner {
+    margin: 3vh;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .banner {
+    margin: 3vh;
+  }
+}
+
+/* styling of the id corresponding to the logo of the website */
+#header-logo {
+  margin: auto; /* margin is calculated by the browser */
+
+  top: calc(var(--space) * 2);
+  left: calc(var(--space) * 2);
+
+  font-size: var(--main-font-size);
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  #header-logo p {
+    font-size: var(--reponsive-small-font-size);
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  #header-logo p {
+    font-size: var(--reponsive-med-font-size);
+  }
+}
+
+/* styling of the class corresponding to the navigation menu: this toggle is hidden */
+.nav-toggle {
+  position: fixed;
+  height: 1px;
+  width: 1px;
+  overflow: hidden; /* hiding the element */
+
+  clip: rect(1px, 1px, 1px, 1px); /* creates a rectangle to clip the absolute element */
+  white-space: nowrap; /* how whitespace is handled: it collapses into a single one */
+}
+
+/* styling of the id corresponding to the navigation menu label */
+#nav-toggle-label {
+  position: fixed;
+  top: calc(var(--space) * 2); /* position relative to the top */
+  right: calc(var(--space) * 6); /* position relative to the right */
+
+  cursor: pointer; /* which mouse cursor to display */
+  z-index: 2; /* the order in the stack for this element */
+
+  background-color: var(--dark-black);
+  padding: 2rem;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  #nav-toggle-label {
+    position: relative;
+    top: 0; /* position relative to the top */
+    left: 1rem;
+    right: auto; /* position relative to the right */
+    margin-left: 1rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  #nav-toggle-label {
+    position: relative;
+    top: 0; /* position relative to the top */
+    left: 5rem;
+    right: auto; /* position relative to the right */
+    margin-left: 1rem;
+  }
+}
+
+/* styling of the class that draws the sandwich menu */
+.sandwich-menu {
+  display: flex;
+
+  --size: calc(1rem + 5vmin); /* local size variable */
+  width: var(--size);
+  height: calc(var(--size) * 3);
+  stroke-width: 8;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .sandwich-menu {
+    height: calc(var(--size) * 2);
+    stroke-width: 6; /* the width of the stroke for svg, as seen: https://css-tricks.com/almanac/properties/s/stroke-width/ */
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .sandwich-menu {
+    stroke-width: 6;
+  }
+}
+
+/* styling of the class that draws the group of lines of the sandwich menu */
+.line-group {
+  transform: translateX(0); /* a translation using the y axis: this will draw the 'x' for closing */
+  transition: transform var(--menu-duration) var(--menu-ease); /* change the transform value */
+}
+
+/* styling of the class that draws the each line of the sandwich menu */
+.line-icon {
+  stroke: var(--off-yellow); /* the stroke color of the svg element */
+}
+
+/* styling of the class that draws the each line of the sandwich menu: the close icon */
+.close-icon {
+  stroke: var(--off-yellow); /* the stroke color of the svg element */
+  transform: translateX(-100%); /* use transform to hide the element at first */
+}
+
+/* styling of the nav-menu class that is rendered when the sandwich icon is clicked */
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  transform: translateX(-100%); /* usage of the transform to translate over the y axis */
+  z-index: 1; /* the order in the stack for this element */
+}
+
+/* styling of the nav-menu class after the content that is rendered when the sandwich icon is clicked */
+/* more information here: https://css-tricks.com/almanac/selectors/a/after-and-before/ */
+.nav-menu:after {
+  content: ''; /* an empty content */
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--off-yellow);
+  z-index: -1; /* the order in the stack for this element */
+}
+
+/* styling of the nav-menu class ul: starts the menu list */
+.nav-menu ul {
+  margin-top: 15rem;
+
+  font-size: calc(var(--main-font-size) * 2.5);
+
+  width: 100%;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .nav-menu ul {
+    font-size: calc(var(--main-font-size) * 1.5);
+  }
+}
+
+/* styling of the nav-menu class ul li: each element on the menu list */
+.nav-menu ul li {
+  display: flex; /* display as flex-box */
+  align-items: center;
+  position: relative;
+}
+
+/* styling of the nav-menu class ul li after: each element on the menu list */
+.nav-menu ul li:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+}
+
+/* styling of the nav-menu class ul li a: each link on each element on the menu list */
+.nav-menu a {
+  display: inline-block;
+  width: 100%;
+  max-width: 18rem; /* allow for a max-width */
+  margin: 0 auto;
+
+  color: var(--dark-black);
+  line-height: calc(var(--line-height) / 1.5);
+
+  /* specify whether the text of an element can be selected */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none;
+
+  /* calculate padding based on a global variable */
+  padding: var(--space) calc(var(--space) * 2) calc(var(--space) + var(--border-size) / 2);
+}
+
+/* styling of the nav-menu class ul li a:hover: each link on each element on the menu list */
+.nav-menu a:hover {
+  color: var(--opaque-off-white); /* change the color on hover */
+}
+
+/* For accessibility purposes. See: https://css-tricks.com/focusing-on-focus-styles/ */
+.nav-menu a:focus {
+  outline: 3px solid var(--off-dark-purple);
+}
+/* end header section */
+/*
+/*
+
+/* Style of the main page of the website */
+/* */
+/* */
+
+/* start of the content section */
+/* style for the content section of the website */
+section.content {
+  width: 100vw;
+  height: 98vh; /* the height and width are taken relative to the viewport measures. See: https://www.w3schools.com/cssref/css_units.asp */
+
+  background-image: url("../images/background_image.png"); /* the website uses a cover background: a map of latin america */
+  background-position: left;
+  background-repeat: no-repeat; /* do not repeat the background */
+  background-size: cover; /* cover the entire content with the background image */
+
+  border-bottom: 1px solid var(--light-gray); /* create a thin border between sections */
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  section.content {
+    height: auto; /* the height and width are taken relative to the viewport measures. See: https://www.w3schools.com/cssref/css_units.asp */
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  section.content {
+    height: auto; /* the height and width are taken relative to the viewport measures. See: https://www.w3schools.com/cssref/css_units.asp */
+  }
+}
+
+/* styling of the 'animated-element' class for adding a 'fadeInDown' gallery-animation. It takes inspiration from https://github.com/animate-css/animate.css/blob/main/source/fading_entrances/fadeInDown.css*/
+.scroll-element {
+  animation-duration: var(--animate-duration);
+  animation-fill-mode: both;
+}
+
+/* the 'fadeInDown' animation itself */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+}
+
+/* styling of the main-content class: the main highlight of the page */
+/* this element will be hidden when the menu icon is toggeled */
+.main-content {
+  margin-right: 1rem;
+  margin: 6rem auto;
+  margin-left: 4rem;
+
+  padding: 0 calc(var(--space) * 2);
+
+  font-size: calc(var(--main-font-size) * 1.2);
+  font-weight: 500; /* apply a bolder font weight */
+  line-height: calc(var(--line-height) / 1.5);
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .main-content {
+    margin: 1rem;
+    margin-top: 5rem;
+    font-size: calc(var(--small-font-size) / 1.3);
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .main-content {
+    margin: 1rem;
+    margin-top: 7rem;
+    font-size: calc(var(--small-font-size) * 1.2);
+  }
+}
+
+/* styling of the nav-toggle class: the input that shows the menu when checked */
+/* The :checked selector matches every check */
+/* this is using the 'general-sibling-combinator' (~), as defined in:
+/* https://www.w3.org/TR/selectors-3/#general-sibling-combinators */
+/* matches all of the siblings elemens (label, .sandwich-menu, .line-group) after
+/* the parent (nav-toogle:checked) */
+.nav-toggle:checked ~ label .sandwich-menu .line-group {
+  transform: translateX(100%); /* transform by using the x-axis */
+}
+
+/* styling of the nav-toggle class: the input that shows the menu when checked */
+/* matches all of the siblings elemens (.nav-menu) after
+/* the parent (nav-toogle:checked) It reveals the menu*/
+.nav-toggle:checked ~ .nav-menu {
+  transition-duration: 0s;
+  transform: translateX(0%);
+}
+
+/* styling of the 'float-section' id that represents the floating elements */
+#float-section {
+  display: flex; /* display the elements as flex-box */
+  margin: 6rem auto;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  #float-section {
+    margin: 0;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  #float-section {
+    margin: 0;
+  }
+}
+
+/* styling of the 'float-arrow' class that represents the floating arrow between sections */
+.float-arrow {
+  display: block;
+  width: 20%; /* reduce the width of the svg */
+  margin-right: 20rem;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .float-arrow {
+    display: none;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .float-arrow {
+    display: none;
+  }
+}
+
+/* styling of the 'arrow-line' class that represents the svg that draws the arrow */
+.arrow-line {
+  /* the styling of the stroke */
+  stroke: black;
+  stroke-width: 3;
+  stroke-miterlimit: 10; /* limit on the ratio of the miter length to the stroke-width: https://www.geeksforgeeks.org/css-stroke-miterlimit-property/ */
+  fill: none;
+}
+
+/* styling of the 'float-text' id that represents the floating text between the first two sections of the main page */
+#float-text {
+  background-color: var(--off-yellow);
+  padding: 1.5rem;
+  width: 50%;
+
+  font-family: var(--secondary-font);
+  font-size: calc(var(--main-font-size) / 2.3);
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  #float-text {
+    width: 100%;
+    font-size: calc(var(--main-font-size) / 3);
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  #float-text {
+    margin-top: 10rem;
+    padding: 4rem;
+    width: 90%;
+    font-size: calc(var(--main-font-size) / 1.6);
+  }
+}
+
+/* start of most-recet articles section */
+section#articles {
+  width: 100vw;
+  height: 120vh; /* the height and width are taken relative to the viewport measures. See: https://www.w3schools.com/cssref/css_units.asp */
+
+  border-bottom: 1px solid var(--light-gray);
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  section#articles {
+    height: auto; /* the height and width are taken relative to the viewport measures. See: https://www.w3schools.com/cssref/css_units.asp */
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  section#articles {
+    height: auto; /* the height and width are taken relative to the viewport measures. See: https://www.w3schools.com/cssref/css_units.asp */
+  }
+}
+
+/* styling of the 'articles-nav' id which contains the list of the most recent articles */
+#articles-nav {
+  margin: 6rem auto;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-bottom: 1rem;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  #articles-nav {
+    margin: 0;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  #articles-nav {
+    margin: 0;
+  }
+}
+
+/* styling of the 'main-articles-list' id which lists the most recent articles */
+#main-articles-list {
+  display: flex;
+  flex-direction: row; /* display as a row */
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  #main-articles-list {
+    margin: 0;
+
+    display: flex;
+    flex-direction: column; /* display as a column */
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  #main-articles-list {
+    margin: 0;
+    margin-left: 5rem;
+
+    display: flex;
+    flex-direction: column; /* display as a column */
+  }
+}
+
+.article-link {
+  border: 0.3rem solid #000000;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding: 1rem;
+  width: 30%;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .article-link {
+    width = "80%";
+    margin-bottom = "1rem";
+  }
+}
+
+.article-link:hover {
+    color = "#6438A6"; /* change to dark purple */
+}
+
+.article-link img {
+  width: 60%;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  opacity: 100%;
+  filter: "";
+}
+
+.article-link img:hover {
+  opacity = "70%";
+  style.filter = "sepia(100%) saturate(300%) brightness(90%) hue-rotate(180deg)";
+}
+
+.article-title-out {
+  font-size: 2rem;
+  font-family: 'Courier Prime', monospace;
+  text-align: center;
+  border-top: 0.3rem solid #000000;
+}
+
+.article-author-out {
+  font-size: 1rem;
+  font-family: 'Courier Prime', monospace;
+  text-align: right;
+}
+
+.article-date-out {
+  font-size: 0.8rem;
+  font-family: 'Courier Prime', monospace;
+  text-align: right;
+}
+/*
+/*
+/* end of the main page section */
+
+/*
+/*
+/* start of article page: the template for each article */
+section.article-content {
+  margin: 10vh;
+  margin-right: 25vh;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  section.article-content {
+    margin: 3vh;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  section.article-content {
+    margin: 3vh;
+  }
+}
+
+/* styling of the 'article-information' class which lists information of the article: author, title, date */
+.article-information {
+  font-family: var(--secondary-font);
+  font-size: var(--small-font-size);
+  line-height: 0.8;
+}
+
+/* styling of the 'article-information' h2 tag for mobile */
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .article-information h2 {
+    font-size: calc(var(--main-font-size) / 2);
+  }
+}
+
+/* styling of the 'article-information' class */
+.article-title {
+  font-size: calc(var(--main-font-size) * 1.5);
+  margin: 0;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .article-title {
+    font-size: calc(var(--main-font-size) / 1.5);
+    line-height: 1;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .article-title {
+    font-size: calc(var(--main-font-size) * 1.5);
+    line-height: 1;
+  }
+}
+
+/* styling of the 'article-intro' class */
+.article-intro {
+  margin-top: 5rem;
+  font-size: calc(var(--main-font-size) / 2.5);
+  font-style: oblique; /* change the font style */
+  line-height: 1;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .article-intro {
+    line-height: 1.5;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .article-intro {
+    line-height: 1.5;
+  }
+}
+
+/* styling of the 'article-text' class: the main text */
+.article-text {
+  margin-top: 5rem;
+  font-size: calc(var(--small-font-size) / 2);
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+   .article-text {
+     margin-top: 3rem;
+     font-size: calc(var(--small-font-size) / 2.5);
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+   .article-text {
+     margin-top: 3rem;
+  }
+}
+
+/* styling of the 'article-text' h2 tag: the titles of subsections */
+.article-text h2 {
+  font-size: calc(var(--main-font-size) * 2);
+}
+
+/* styling of the 'article-text' ol li tag: each element of an ordered list */
+.article-text ol li {
+  font-size: calc(var(--main-font-size) / 1.1);
+}
+
+/* styling of the 'article-text' ol li tag: each element of an unordered list */
+.article-text ul li {
+  font-size: calc(var(--main-font-size) / 1.1);
+}
+
+/* styling of the 'article-text' img tag: the images to render in the article */
+.article-text img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+   .article-text img {
+     width: 70%;
+  }
+}
+
+/* styling of the 'article-text' a tag: the links in the article */
+.article-text a {
+  color: var(--off-dark-purple);
+}
+
+/* styling of the 'article-text' a:hover tag: the hover over links in the article */
+.article-text a:hover {
+  color: var(--off-light-purple);
+}
+
+/* For accessibility purposes. See: https://css-tricks.com/focusing-on-focus-styles/ */
+.article-text a:focus {
+  outline: 3px solid var(--off-dark-purple);
+}
+
+/* styling of the 'article-text' figure tag: a figure with its caption */
+.article-text figure {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+
+  font-size: calc(var(--small-font-size) / 2);
+  text-align: center;
+}
+
+/* styling of the 'article-footnotes' class: the main containers of the footnotes */
+.article-footnotes {
+  border-top: 1px solid var(--light-gray);
+}
+
+/* styling of the 'footnotes' class: each footnote */
+.footnote {
+  font-size: calc(var(--small-font-size) * 1.1);
+}
+
+/* styling of the 'article-quote' class: a relevant quote in an article */
+.article-quote {
+  font-size: calc(var(--main-font-size) * 1.1);
+  font-style: oblique;
+}
+
+/* styling of the 'article-comparison-img' class: compare two images */
+.article-comparison-img {
+  display: flex;
+  height: 50%;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .article-comparison-img {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+}
+/*
+/*
+/* end of the article template */
+
+/*
+/*
+/* start of contact page */
+section.contact {
+  margin: 10vh;
+  margin-right: 25vh;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  section.contact {
+    margin: 2vh;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  section.contact {
+    margin: 2vh;
+    margin-bottom: 8vh;
+  }
+}
+
+/* styling of the 'contact-email' class which renders the email to contact to */
+.contact-email {
+  display: flex;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .contact-email {
+    display: block;
+  }
+
+  .contact-email i {
+    display: none; /* hide the icon */
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .contact-email {
+    display: block;
+  }
+
+  .contact-email i {
+    display: none; /* hide the icon */
+  }
+}
+
+/* styling of the 'contact-email' p tag corresponding to the text */
+.contact-email p {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 5vh;
+}
+
+/*
+/*
+/* end of contact page */
+
+/* start of authors page */
+/*
+/* */
+section.authors {
+  margin: 10vh;
+  margin-right: 25vh;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  section.authors {
+    margin: 1rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  section.authors {
+    margin: 1rem;
+  }
+}
+
+/* styling of the 'author-list' class which renders the list of authors */
+.author-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 5rem;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .author-list {
+    flex-direction: column;
+    margin-left: 1rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .author-list {
+    margin-left: 1rem;
+  }
+}
+
+/* styling of the 'author-element' class which renders the object for each author */
+.author-element {
+  padding: 0.5rem;
+  margin: 1rem;
+
+  width: 20%;
+  border: 3px solid var(--dark-black);
+  background-color: #F2EE83E1;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .author-element {
+    width: 80%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .author-element {
+    width: 40%;
+  }
+}
+
+/* styling of the 'author-image' class which renders the image for each author */
+.author-image {
+  width: 90%;
+  height: 50%;
+  object-fit: contain;
+
+  /* change the opacity of the image */
+  -webkit-filter: grayscale(50%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(50%);
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .author-image {
+    width: 50%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .author-image {
+    width: 70%;
+  }
+}
+
+/* styling of the 'author-name' class which renders the name for each author */
+.author-name {
+  font-size: var(--small-font-size);
+  text-align: center;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .author-name {
+    font-size: calc(var(--small-font-size) * 1.1);
+    text-align: right;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .author-name {
+    font-size: calc(var(--small-font-size) * 1.3);
+    text-align: right;
+  }
+}
+
+/* styling of the 'author-contact' class which renders the main points of contact for each author */
+.author-contact {
+  text-align: right;
+  line-height: 0.5rem;
+}
+
+/* styling of the 'author-contact' p tag which renders the text of the points of contact for each author */
+.author-contact p {
+  font-size: calc(var(--small-font-size) / 1.1);
+}
+
+/*
+/*
+/* end of the authors page */
+
+/*
+/*
+/* start of articles page */
+section.full-articles {
+  margin: 10vh;
+  margin-right: 25vh;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  section.full-articles {
+    margin: 2vh;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  section.full-articles {
+    margin: 2vh;
+  }
+}
+
+/* styling of the 'articles-full-list' class which renders the list of articles */
+.articles-full-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 5rem;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .articles-full-list {
+    flex-direction: column;
+    margin-left: 1rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .articles-full-list {
+    margin-left: 1rem;
+  }
+}
+
+/* styling of the 'article-full-element' class which renders the object for each article */
+.article-full-element {
+  display: flex;
+  flex-direction: column;
+
+  border-top: 3px solid var(--dark-black);
+  border-bottom: 3px solid var(--dark-black);
+  padding: 0.5rem;
+  margin: 2rem;
+  width: 25%;
+
+  background-color: var(--opaque-off-light-gray);
+}
+
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .article-full-element {
+    width: 80%;
+    margin: 1rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .article-full-element {
+    width: 40%;
+    margin: 1rem;
+  }
+}
+
+/* styling of the 'article-full-image' class which renders the image for each article */
+.article-full-image {
+  width: 90%;
+  max-height: 15rem;
+  object-fit: contain; /* image resized to fit the container */
+
+  /* change the image to gray */
+  -webkit-filter: grayscale(50%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(50%);
+  opacity: 70%
+}
+
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .article-full-image {
+    width: 70%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .article-full-image {
+    width: 80%;
+  }
+}
+
+/* styling of the 'article-full-information' class which renders the information for each article: author, date, tags */
+.article-full-information {
+  font-family: var(--secondary-font);
+  text-align: left;
+  margin-left: 1rem;
+}
+
+/* styling of the 'article-full-information' class a:hover tag which defines the hover of the link */
+.article-full-element a:hover {
+ color: var(--off-dark-purple);
+ opacity: 70%;
+}
+
+/* For accessibility purposes. See: https://css-tricks.com/focusing-on-focus-styles/ */
+.article-full-element a:focus {
+  outline: 3px solid var(--off-dark-purple);
+}
+
+/* styling of the 'article-full-author' class referring to the author's name */
+.article-full-author {
+  font-size: var(--small-font-size);
+  max-height: 3rem;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .article-full-author {
+    max-height: 2rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .article-full-author {
+    max-height: 3rem;
+  }
+}
+
+/* styling of the 'article-full-date' class referring to the article's date */
+.article-full-date {
+  font-size: var(--small-main-font-size);
+}
+
+/* styling of the 'article-full-tags' class referring to the article's date */
+.article-full-tags {
+  font-size: var(--small-main-font-size);
+  font-style: oblique;
+}
+/* end of the articles page */
+/*
+/* */
+
+/*
+/*
+/* start of the report style */
+section.report {
+  margin: 5vh;
+  margin-left: 25vh;
+  margin-right: 25vh;
+}
+
+/* styling of the p tag of the report section */
+section.report p {
+  font-size: 1rem;
+}
+
+/* styling of the a tag of the report section */
+section.report a {
+  color: var(--off-dark-purple);
+}
+
+/* styling of the img tag of the report section */
+section.report img {
+  width: 50%;
+  margin: 5vh;
+  margin-left: 25vh;
+}
+
+/* styling of the .small-image class of the report section */
+section.report .small-image {
+  width: 50%;
+}
+/*
+/*
+/* end of the report style */
