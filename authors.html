@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<!-- the authors section shows the authors writing for of the website. -->
+<section class="authors" title="Authors writing on Latin Americans in Cryptography magazine">
+
+  <!-- this section includes the main, most important content of this section. -->
+  <div class="main-content">
+    <p>Who are we?</p>
+    <!-- dynamically generate (by using js) the list of authors: this uses handlebars. This script defines the template to be used. -->
+    <script id="author-template" type="text/x-handlebars-template">
+      <!-- the list of authors -->
+      <div class="author-list">
+        <!-- a built-in helper of handlebars: #each (for each), as defined in: https://handlebarsjs.com/guide/builtin-helpers.html . -->
+				{% raw %}
+        {{#each authors}}
+          <!-- the container for each author. -->
+          <div class="author-element">
+            <img src="{{image}}" alt="{{name}}'s photo" class="author-image" />
+            <p class="author-name">{{name}}</p>
+            <div class="author-contact">
+              <!-- renders the twitter account and an icon for it by using font-awesome. -->
+              <p><i class="fab fa-twitter"></i>{{twitter}}</p>
+              <!-- renders the website and an icon for it by using font-awesome. -->
+              <a href="{{website}}" alt="{{name}}'s website"><i class="fab fa-battle-net"></i></a>
+            </div>
+          </div>
+        {{/each}}
+				{% endraw %}
+      </div>
+    </script>
+  </div>
+
+  <!-- the container where the rendered output from the 'author-template' will be dumped. -->
+  <div class="author-rendered-output">
+  </div>
+</section>
