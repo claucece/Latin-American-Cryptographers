@@ -1048,7 +1048,7 @@ section.full-articles {
 }
 
 /* styling of the 'articles-full-list' class which renders the list of articles */
-.articles-full-list {
+#articles-full-list {
   display: flex;
   flex-wrap: wrap;
   margin-left: 5rem;
@@ -1056,7 +1056,7 @@ section.full-articles {
 
 /* Extra small devices (phones, 700px and down) */
 @media only screen and (min-width: 200px) and (max-width: 767px)  {
-  .articles-full-list {
+  #articles-full-list {
     flex-direction: column;
     margin-left: 1rem;
   }
@@ -1064,7 +1064,7 @@ section.full-articles {
 
 /* Medium devices (landscape tablets, 768px to 1024) */
 @media only screen and (min-width: 768px) and (max-width: 1024px)  {
-  .articles-full-list {
+  #articles-full-list {
     margin-left: 1rem;
   }
 }
