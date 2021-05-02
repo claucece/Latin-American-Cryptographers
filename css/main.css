@@ -989,6 +989,7 @@ section.authors {
 
 /* styling of the 'author-name' class which renders the name for each author */
 .author-name {
+  font-family: var(--secondary-font);
   font-size: var(--small-font-size);
   text-align: center;
 }

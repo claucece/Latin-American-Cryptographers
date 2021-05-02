@@ -24,6 +24,12 @@ window.onload = function() {
         website: "https://www.cryptme.in/"
       },
       {
+        name: "Fabio Campos",
+        image: "./images/authors/fabio_campos_photo.png",
+        twitter: "@primaboinca",
+        website: "https://www.sopmac.de/"
+      },
+      {
         name: "Sofía Celi",
         image: "./images/authors/sofia_celi_photo.png",
         twitter: "@claucece",
@@ -54,6 +60,12 @@ window.onload = function() {
         website: "https://www.patricklonga.com/"
       },
       {
+        name: "Octavio Perez",
+        image: "./images/authors/octavio_perez_photo.png",
+        twitter: "@octaviopk",
+        website: "https://uruguay.misprofesores.com/profesores/Octavio-Perez-Kempner_15757"
+      },
+      {
         name: "Francisco Rodríguez",
         image: "./images/authors/francisco_rodriguez_photo.png",
         twitter: "@FRHENR",
@@ -64,6 +76,12 @@ window.onload = function() {
         image: "./images/authors/fernando_virdia_photo.png",
         twitter: "",
         website: "https://fundamental.domains/"
+      },
+      {
+        name: "Arantxa Zapico",
+        image: "./images/authors/arantxa_zapico_photo.png",
+        twitter: "@arantxazapico",
+        website: "https://www.linkedin.com/in/victoria-arantxa-zapico-634444160/?originalSubdomain=es"
       },
     ]
   };
