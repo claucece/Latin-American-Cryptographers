@@ -9,19 +9,19 @@ layout: default
     <p>What do we write?</p>
     <div id="articles-full-list">
       {% for post in site.posts %}
-        <div class="article-full-element">
-            <a href="{{post.url}}" alt="{{post.alt}}">
-              <img src="{{post.image}}" alt="{{post.alt}}'s photo" class="article-full-image" />
-            </a>
-            <a href="{{post.url}}">
-              <div class="article-full-information">
-                <p>{{post.title}}</p>
-                <p class="article-full-author">{{post.author}}</p>
-                <p class="article-full-date">{{post.date}}</p>
-                <p class="article-full-tags">{{post.tags}}</p>
-              </div>
-            </a>
-				</div>
+      <div class="article-full-element">
+        <a href="{{post.url}}" alt="{{post.alt}}">
+          <img src="{{post.image}}" alt="{{post.alt}}'s photo" class="article-full-image" />
+        </a>
+        <a href="{{post.url}}">
+          <div class="article-full-information">
+            <p>{{post.title}}</p>
+            <p class="article-full-author">{{post.author}}</p>
+            <p class="article-full-date">{{post.date}}</p>
+            <p class="article-full-tags">{{post.tags}}</p>
+          </div>
+        </a>
+      </div>
       {% endfor %}
     </div>
 </section>
