@@ -1,4 +1,4 @@
-window.onload = function() {
+var load_authors = function() {
   // get the template defined with handlebars and compile it.
   const source = document.getElementById("author-template").innerHTML;
   const template = Handlebars.compile(source);
@@ -90,3 +90,4 @@ window.onload = function() {
   const html = template(context);
   document.querySelector(".author-rendered-output").innerHTML = html;
 }
+window.addEventListener('load', load_authors, false);
