@@ -944,6 +944,7 @@ section.authors {
   margin: 1rem;
 
   width: 20%;
+  min-width: 10rem;
   border: 3px solid var(--dark-black);
   background-color: #F2EE83E1;
 }
@@ -960,6 +961,14 @@ section.authors {
   .author-element {
     width: 40%;
   }
+}
+
+.author-image-wrap {
+  text-align: center;
+}
+
+.author-twitter {
+  overflow-x: clip;
 }
 
 /* styling of the 'author-image' class which renders the image for each author */

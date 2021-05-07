@@ -19,11 +19,13 @@ layout: default
         {{#each authors}}
           <!-- the container for each author. -->
           <div class="author-element">
-            <img src="{{image}}" alt="{{name}}'s photo" class="author-image" />
+            <div class="author-image-wrap">
+              <img src="{{image}}" alt="{{name}}'s photo" class="author-image" />
+            </div>
             <p class="author-name">{{name}}</p>
             <div class="author-contact">
               <!-- renders the twitter account and an icon for it by using font-awesome. -->
-              <p><i class="fab fa-twitter"></i>{{twitter}}</p>
+              <p class="author-twitter"><i class="fab fa-twitter"></i>{{twitter}}</p>
               <!-- renders the website and an icon for it by using font-awesome. -->
               <a href="{{website}}" alt="{{name}}'s website"><i class="fab fa-battle-net"></i></a>
             </div>
