@@ -573,6 +573,7 @@ section#articles {
 
     display: flex;
     flex-direction: column; /* display as a column */
+    align-items: center;
   }
 }
 
@@ -580,10 +581,11 @@ section#articles {
 @media only screen and (min-width: 768px) and (max-width: 1024px)  {
   #main-articles-list {
     margin: 0;
-    margin-left: 5rem;
+    /* margin-left: 5rem; */
 
     display: flex;
     flex-direction: column; /* display as a column */
+    align-items: center;
   }
 }
 
@@ -592,19 +594,33 @@ section#articles {
   margin-left: 2rem;
   margin-right: 2rem;
   padding: 1rem;
+  min-width: 30%;
   width: 30%;
+}
+
+.article-link > div {
+  overflow-x: hidden;
 }
 
 /* Extra small devices (phones, 700px and down) */
 @media only screen and (min-width: 200px) and (max-width: 767px)  {
   .article-link {
-    width = "80%";
-    margin-bottom = "1rem";
+    width: 80%;
+    max-width: 384px;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .article-link {
+    width: 50%;
+    margin-bottom: 1rem;
   }
 }
 
 .article-link:hover {
-    color = "#6438A6"; /* change to dark purple */
+    color: #3c2361;
 }
 
 .article-link img {
@@ -618,6 +634,10 @@ section#articles {
 .article-link img:hover {
   opacity = "70%";
   style.filter = "sepia(100%) saturate(300%) brightness(90%) hue-rotate(180deg)";
+}
+
+.article-image-out {
+  text-align: center;
 }
 
 .article-title-out {
