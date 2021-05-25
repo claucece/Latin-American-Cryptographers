@@ -598,13 +598,13 @@ section#articles {
 /* Extra small devices (phones, 700px and down) */
 @media only screen and (min-width: 200px) and (max-width: 767px)  {
   .article-link {
-    width = "80%";
-    margin-bottom = "1rem";
+    width: 80%;
+    margin-bottom: 1rem;
   }
 }
 
 .article-link:hover {
-    color = "#6438A6"; /* change to dark purple */
+    color: #6438A6; /* change to dark purple */
 }
 
 .article-link img {

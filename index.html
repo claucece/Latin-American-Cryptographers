@@ -47,7 +47,7 @@ layout: default
           <div><img src="{{post.image}}" alt="lol.html"></div>
           <div class="article-title-out">{{post.title}}</div>
           <div class="article-author-out">{{post.author}}</div>
-          <div class="article-date-out">{{post.date}}</div>
+          <div class="article-date-out">{{ post.date | date: '%B %d, %Y' }}</div>
         </div>
       </a>
       {% endfor %}
