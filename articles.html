@@ -15,9 +15,9 @@ layout: default
         </a>
         <a href="{{post.url}}">
           <div class="article-full-information">
-            <p>{{post.title}}</p>
+            <p class="article-full-title">{{post.title}}</p>
             <p class="article-full-author">{{post.author}}</p>
-            <p class="article-full-date">{{post.date}}</p>
+            <p class="article-full-date">{{ post.date | date: '%B %d, %Y' }}</p>
             <p class="article-full-tags">{{post.tags}}</p>
           </div>
         </a>

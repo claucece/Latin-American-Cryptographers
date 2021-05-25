@@ -1098,6 +1098,17 @@ section.full-articles {
   }
 }
 
+/* styling of the 'article-full-element' class which renders the object for each article */
+.article-full-element .article-full-title {
+  font-size: calc(var(--main-font-size) / 2.7);
+}
+
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .article-full-element .article-full-title {
+    font-size: calc(var(--main-font-size) / 1.3);
+  }
+}
+
 /* styling of the 'article-full-image' class which renders the image for each article */
 .article-full-image {
   width: 90%;
@@ -1128,7 +1139,6 @@ section.full-articles {
 /* styling of the 'article-full-information' class which renders the information for each article: author, date, tags */
 .article-full-information {
   font-family: var(--secondary-font);
-  font-size: 0.9rem;
   text-align: left;
   margin-left: 1rem;
 }
@@ -1146,7 +1156,7 @@ section.full-articles {
 
 /* styling of the 'article-full-author' class referring to the author's name */
 .article-full-author {
-  font-size: var(--small-font-size);
+  font-size: calc(var(--small-font-size)/2.7);
   max-height: 3rem;
 }
 
@@ -1166,12 +1176,12 @@ section.full-articles {
 
 /* styling of the 'article-full-date' class referring to the article's date */
 .article-full-date {
-  font-size: var(--small-main-font-size);
+  font-size: calc(var(--small-font-size) / 3);
 }
 
 /* styling of the 'article-full-tags' class referring to the article's date */
 .article-full-tags {
-  font-size: var(--small-main-font-size);
+  font-size: var(--small-font-size);
   font-style: oblique;
 }
 /* end of the articles page */
