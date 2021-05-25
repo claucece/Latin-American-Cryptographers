@@ -603,6 +603,15 @@ section#articles {
   }
 }
 
+/* Medium devices (landscape tablets, 768px up to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .article-link {
+    width: 40%;
+    margin-bottom: 2rem;
+    margin-left: 5rem;
+  }
+}
+
 .article-link:hover {
     color: #6438A6; /* change to dark purple */
 }
