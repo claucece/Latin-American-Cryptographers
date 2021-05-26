@@ -953,6 +953,7 @@ section.authors {
   margin: 1rem;
 
   width: 20%;
+  height: auto;
   border: 3px solid var(--dark-black);
   background-color: #F2EE83E1;
 }
@@ -999,7 +1000,7 @@ section.authors {
 /* styling of the 'author-name' class which renders the name for each author */
 .author-name {
   font-family: var(--secondary-font);
-  font-size: var(--small-font-size);
+  font-size: calc(var(--small-font-size) / 1.1);
   text-align: center;
 }
 
@@ -1019,6 +1020,30 @@ section.authors {
   }
 }
 
+/* styling of the 'author-job' class which renders the job for each author */
+.author-job {
+  font-family: var(--secondary-font);
+  font-size: calc(var(--small-font-size) / 2);
+  text-align: center;
+  line-height: 0.3rem;
+}
+
+/* Extra small devices (phones, 700px and down) */
+@media only screen and (min-width: 200px) and (max-width: 767px)  {
+  .author-job {
+    font-size: calc(var(--small-font-size) / 3);
+    text-align: right;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px to 1024) */
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+  .author-job {
+    font-size: calc(var(--small-font-size) / 3);
+    text-align: right;
+  }
+}
+
 /* styling of the 'author-contact' class which renders the main points of contact for each author */
 .author-contact {
   text-align: right;
@@ -1027,7 +1052,7 @@ section.authors {
 
 /* styling of the 'author-contact' p tag which renders the text of the points of contact for each author */
 .author-contact p {
-  font-size: calc(var(--small-font-size) / 1.1);
+  font-size: calc(var(--small-font-size) / 1.7);
 }
 
 /*
